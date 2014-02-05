@@ -10,12 +10,8 @@
 autom4te.cache
 config.log
 config.status
-config/config.guess
 config/config.h
 config/config.h.in
-config/depcomp
-config/stamp-h1
-config/ar-lib
 Makefile
 Makefile.in
 aclocal.m4
