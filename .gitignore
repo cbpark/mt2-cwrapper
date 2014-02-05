@@ -13,7 +13,6 @@ config.status
 config/config.guess
 config/config.h
 config/config.h.in
-config/config.sub
 config/depcomp
 config/stamp-h1
 config/ar-lib
