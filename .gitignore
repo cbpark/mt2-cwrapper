@@ -15,7 +15,6 @@ config/config.h
 config/config.h.in
 config/config.sub
 config/depcomp
-config/install-sh
 config/missing
 config/stamp-h1
 config/ar-lib
