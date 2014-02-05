@@ -11,9 +11,5 @@ autom4te.cache
 config.log
 config.status
 config/config.h
-config/config.h.in
 Makefile
-Makefile.in
-aclocal.m4
-libtool
 mt2test
