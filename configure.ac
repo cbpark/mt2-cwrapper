@@ -22,7 +22,7 @@ AC_PROG_CXX([clang++ llvm-g++ g++])
 AC_PROG_CC([clang llvm-gcc gcc])
 AM_PROG_AR
 
-dnl If you want shared libraries, configure with --enable-shared
+dnl If you want static libraries, configure with --enable-static
 AC_DISABLE_STATIC
 AC_PROG_LIBTOOL
 
