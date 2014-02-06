@@ -30,7 +30,7 @@ extern "C" {
         struct MT2Calculator* m = newMT2Calculator();
         if (m == NULL) {
             puts("Memory allocation for MT2Calculator failed.");
-            exit(1);
+            return 1;
         }
 
         result->mt2 = MT2Calculator_mt2(m, visA, visB, ptmiss, mInvisible);
