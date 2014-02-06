@@ -1,5 +1,6 @@
 #include "MT2Calculator_c.h"
 #include <stdio.h>
+#include <stdlib.h>
 
 int main(void)
 {
@@ -8,10 +9,21 @@ int main(void)
     double ptmiss[2]  = { -200., 280. };
     double mInvisible = 100.;
 
-    MT2 result = MT2Calculator_run(visA, visB, ptmiss, mInvisible);
+    mt2calc_result* result = (mt2calc_result*) malloc(sizeof(mt2calc_result));
+    if (result == NULL) {
+        puts("Memory allocation for mt2calc_result failed.");
+        exit(1);
+    }
 
-    printf("MT2 = %f\n", result.mt2);
-    printf("qx = %f, qy = %f at the minimum\n", result.qx, result.qy);
+    int status = MT2Calculator_run(visA, visB, ptmiss, mInvisible, result);
+
+    if (status == 0) {
+        printf("MT2 = %f\n", result->mt2);
+        printf("qx = %f, qy = %f at the minimum\n", result->qx, result->qy);
+    }
+    else {
+        printf("The MT2 calculation failed!\n");
+    }
 
     return 0;
 }

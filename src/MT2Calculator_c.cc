@@ -22,20 +22,23 @@ extern "C" {
         return m->pInvisible;
     }
 
-    MT2 MT2Calculator_run(double* visA,
+    int MT2Calculator_run(double* visA,
                           double* visB,
                           double* ptmiss,
-                          double  mInvisible) {
+                          double  mInvisible,
+                          mt2calc_result* result) {
         struct MT2Calculator* m = newMT2Calculator();
+        if (m == NULL) {
+            puts("Memory allocation for MT2Calculator failed.");
+            exit(1);
+        }
 
-        MT2 result;
-
-        result.mt2 = MT2Calculator_mt2(m, visA, visB, ptmiss, mInvisible);
-        result.qx  = MT2Calculator_pInvisible(m)[0];
-        result.qy  = MT2Calculator_pInvisible(m)[1];
+        result->mt2 = MT2Calculator_mt2(m, visA, visB, ptmiss, mInvisible);
+        result->qx  = MT2Calculator_pInvisible(m)[0];
+        result->qy  = MT2Calculator_pInvisible(m)[1];
 
         deleteMT2Calculator(m);
 
-        return result;
+        return 0;
     }
 }

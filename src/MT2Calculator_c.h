@@ -20,17 +20,18 @@ extern "C" {
 
     double* MT2Calculator_pInvisible(MT2Calculator* m);
 
-    typedef struct MT2
+    typedef struct mt2calc_result
     {
         double mt2;
         double qx;
         double qy;
-    } MT2;
+    } mt2calc_result;
 
-    MT2 MT2Calculator_run(double* visA,
+    int MT2Calculator_run(double* visA,
                           double* visB,
                           double* ptmiss,
-                          double  mInvisible);
+                          double  mInvisible,
+                          mt2calc_result* result);
 
 #ifdef __cplusplus
 }
