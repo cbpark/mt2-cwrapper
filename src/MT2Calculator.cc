@@ -20,10 +20,11 @@ double MT2Calculator::mt2(double* visA,
 
     double mSq = mt2Sq(vA, vB, pX, mEachInvisible);
 
-    if (mSq >= 0)
+    if (mSq >= 0) {
         return sqrt(mSq);
-    else
+    } else {
         return sqrt(fabs(mSq));
+    }
 }
 
 double MT2Calculator::mt2Sq(const TLorentzVector& visA,
@@ -62,12 +63,12 @@ double MT2Calculator::mt2Sq(const TLorentzVector& visA,
 
 double MT2Calculator::mT2Fcn::operator()(const std::vector<double>& par) const
 {
-    double qT[2][2] = {             {par[0],             par[1]},
+    double qT[2][2] = { {par[0],             par[1]},
                         {theExmiss - par[0], theEymiss - par[1]} };
 
     double ETchi[2] = { theMchi * theMchi, theMchi * theMchi };
-    for (int i=0; i<2; ++i) {
-        for (int j=0; j<2; ++j)
+    for (int i = 0;  i < 2; ++i) {
+        for (int j = 0; j < 2; ++j)
             ETchi[i] += qT[i][j] * qT[i][j];
 
         ETchi[i] = sqrt( ETchi[i] );
@@ -86,9 +87,9 @@ double MT2Calculator::mT2Fcn::operator()(const std::vector<double>& par) const
 
     double mTsq[2] = { theMchi * theMchi + mVisSq[0],
                        theMchi * theMchi + mVisSq[1] };
-    for (int i=0; i<2; ++i) {
+    for (int i = 0; i < 2; ++i) {
         mTsq[i] += 2.0 * ETchi[i] * ETvis[i];
-        for (int j=0; j<2; ++j)
+        for (int j = 0; j < 2; ++j)
             mTsq[i] -= 2.0 * qT[i][j] * pT[i][j];
     }
 
