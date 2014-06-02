@@ -595,7 +595,7 @@ PACKAGE_STRING='mt2_cwrapper 0.1.0.0'
 PACKAGE_BUGREPORT='chanbeom.park@cern.ch'
 PACKAGE_URL=''
 
-ac_unique_file="src/mt2test.c"
+ac_unique_file="src/Makefile.am"
 # Factoring default headers for most tests.
 ac_includes_default="\
 #include <stdio.h>
@@ -2538,8 +2538,9 @@ ac_configure="$SHELL $ac_aux_dir/configure"  # Please don't use this var.
 ac_config_headers="$ac_config_headers config/config.h"
 
 
+# m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES([yes])])
 
-
+# use the C++ compiler for the following checks
 ac_ext=cpp
 ac_cpp='$CXXCPP $CPPFLAGS'
 ac_compile='$CXX -c $CXXFLAGS $CPPFLAGS conftest.$ac_ext >&5'
@@ -3124,6 +3125,7 @@ END
     as_fn_error $? "Your 'rm' program is bad, sorry." "$LINENO" 5
   fi
 fi
+# Checks for programs.
 ac_ext=cpp
 ac_cpp='$CXXCPP $CPPFLAGS'
 ac_compile='$CXX -c $CXXFLAGS $CPPFLAGS conftest.$ac_ext >&5'
@@ -4529,6 +4531,7 @@ unknown)
 esac
 
 
+# If you want static libraries, configure with --enable-static
 # Check whether --enable-static was given.
 if test "${enable_static+set}" = set; then :
   enableval=$enable_static; p=${PACKAGE-default}
@@ -15311,6 +15314,7 @@ ac_compiler_gnu=$ac_cv_cxx_compiler_gnu
 
 
 
+# Checks for header files.
 
 { $as_echo "$as_me:${as_lineno-$LINENO}: checking for ANSI C header files" >&5
 $as_echo_n "checking for ANSI C header files... " >&6; }
@@ -15449,6 +15453,7 @@ fi
 done
 
 
+# Checks for typedefs, structures, and compiler characteristics.
 ac_fn_cxx_check_type "$LINENO" "size_t" "ac_cv_type_size_t" "$ac_includes_default"
 if test "x$ac_cv_type_size_t" = xyes; then :
 
@@ -15461,6 +15466,7 @@ _ACEOF
 fi
 
 
+# Checks for library functions.
 for ac_func in pow sqrt fabs
 do :
   as_ac_var=`$as_echo "ac_cv_func_$ac_func" | $as_tr_sh`
@@ -15474,6 +15480,8 @@ fi
 done
 
 
+# If CXX is Clang, check that it can find and parse C++ standard library
+# headers.
 if $CXX -dM -E - < /dev/null | grep -q __clang__ ; then
    { $as_echo "$as_me:${as_lineno-$LINENO}: result: Using clang" >&5
 $as_echo "Using clang" >&6; }
@@ -15493,7 +15501,10 @@ ac_compile='$CXX -c $CXXFLAGS $CPPFLAGS conftest.$ac_ext >&5'
 ac_link='$CXX -o conftest$ac_exeext $CXXFLAGS $CPPFLAGS $LDFLAGS conftest.$ac_ext $LIBS >&5'
 ac_compiler_gnu=$ac_cv_cxx_compiler_gnu
 
-        cat confdefs.h - <<_ACEOF >conftest.$ac_ext
+  # Note that space between 'include' and '(' is required.  There's a broken
+  # regex in aclocal that otherwise will think that we call m4's include
+  # builtin.
+  cat confdefs.h - <<_ACEOF >conftest.$ac_ext
 /* end confdefs.h.  */
 #include <limits>
 #if __has_include (<cxxabi.h>)
@@ -15531,10 +15542,12 @@ ac_link='$CXX -o conftest$ac_exeext $CXXFLAGS $CPPFLAGS $LDFLAGS conftest.$ac_ex
 ac_compiler_gnu=$ac_cv_cxx_compiler_gnu
 
 
-    CXXFLAGS+=" -Qunused-arguments"
+  # Add -Qunused-arguments to Clang compiler flags
+  CXXFLAGS+=" -Qunused-arguments"
   LDFLAGS+=" -Qunused-arguments"
 fi
 
+# Add the ROOT libraries
 
 
 
@@ -15551,31 +15564,31 @@ fi
 if test $rootPATHSET = 0 ; then
    as_fn_error $? "Cannot build without ROOT. Please set --with-root. You can also try --with-root=$ROOTSYS" "$LINENO" 5
 else
-   ROOT_CXXFLAGS="`root-config --cflags`"
-   ROOT_LDFLAGS="`root-config --libs`"
+   ac_ext=cpp
+ac_cpp='$CXXCPP $CPPFLAGS'
+ac_compile='$CXX -c $CXXFLAGS $CPPFLAGS conftest.$ac_ext >&5'
+ac_link='$CXX -o conftest$ac_exeext $CXXFLAGS $CPPFLAGS $LDFLAGS conftest.$ac_ext $LIBS >&5'
+ac_compiler_gnu=$ac_cv_cxx_compiler_gnu
 
-   as_ac_File=`$as_echo "ac_cv_file_${ROOTDIR}/include/root/Minuit2/MnSimplex.h" | $as_tr_sh`
-{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for ${ROOTDIR}/include/root/Minuit2/MnSimplex.h" >&5
-$as_echo_n "checking for ${ROOTDIR}/include/root/Minuit2/MnSimplex.h... " >&6; }
-if eval \${$as_ac_File+:} false; then :
-  $as_echo_n "(cached) " >&6
-else
-  test "$cross_compiling" = yes &&
-  as_fn_error $? "cannot check for file existence when cross compiling" "$LINENO" 5
-if test -r "${ROOTDIR}/include/root/Minuit2/MnSimplex.h"; then
-  eval "$as_ac_File=yes"
-else
-  eval "$as_ac_File=no"
-fi
-fi
-eval ac_res=\$$as_ac_File
-	       { $as_echo "$as_me:${as_lineno-$LINENO}: result: $ac_res" >&5
-$as_echo "$ac_res" >&6; }
-if eval test \"x\$"$as_ac_File"\" = x"yes"; then :
+
+   ROOT_CXXFLAGS="`${ROOTDIR}/bin/root-config --cflags`"
+   CPPFLAGS+="${ROOT_CXXFLAGS}"
+   ROOT_LDFLAGS="`${ROOTDIR}/bin/root-config --libs`"
+
+   ac_fn_cxx_check_header_mongrel "$LINENO" "Minuit2/MnSimplex.h" "ac_cv_header_Minuit2_MnSimplex_h" "$ac_includes_default"
+if test "x$ac_cv_header_Minuit2_MnSimplex_h" = xyes; then :
   ROOT_LDFLAGS="${ROOT_LDFLAGS} -lMinuit2"
 else
   as_fn_error $? "Your ROOT is not configured with Minuit2. Try to reinstall the ROOT with the option --enable-minuit2 or --all." "$LINENO" 5
 fi
+
+
+
+   ac_ext=cpp
+ac_cpp='$CXXCPP $CPPFLAGS'
+ac_compile='$CXX -c $CXXFLAGS $CPPFLAGS conftest.$ac_ext >&5'
+ac_link='$CXX -o conftest$ac_exeext $CXXFLAGS $CPPFLAGS $LDFLAGS conftest.$ac_ext $LIBS >&5'
+ac_compiler_gnu=$ac_cv_cxx_compiler_gnu
 
 fi
 
