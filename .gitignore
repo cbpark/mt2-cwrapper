@@ -2,11 +2,13 @@
 *.lo
 *.a
 *.la
-*/.deps
-*/.libs
+*.deps
+*.libs
 *.gz
 *.orig
 *~
+.#*
+.swp
 autom4te.cache
 config.log
 config.status
@@ -14,4 +16,8 @@ config/config.h
 config/stamp-h1
 libtool
 Makefile
+build
+
+# executables #
+###############
 mt2test
