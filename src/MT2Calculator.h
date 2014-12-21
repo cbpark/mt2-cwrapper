@@ -47,44 +47,6 @@ private:
                  const TLorentzVector& visibleB,
                  const TVector2& ptmiss,
                  const double& mInvisible);
-
-    class mT2Fcn : public ROOT::Minuit2::FCNBase {
-    public:
-        mT2Fcn(const double& exmiss,
-               const double& eymiss,
-               const double& mchi,
-               const TLorentzVector& visA,
-               const TLorentzVector& visB) :
-            theExmiss(exmiss),
-            theEymiss(eymiss),
-            theMchi(mchi),
-            theVisA(visA),
-            theVisB(visB),
-            theErrorDef(1.) { }
-
-        ~mT2Fcn() { }
-
-        virtual double Up() const
-            {
-                return theErrorDef;
-            }
-        virtual double operator()(const std::vector<double>&) const;
-
-        void setErrorDef(double def)
-            {
-                theErrorDef = def;
-            }
-
-    private:
-        double theExmiss;
-        double theEymiss;
-        double theMchi;
-
-        TLorentzVector theVisA;
-        TLorentzVector theVisB;
-
-        double theErrorDef;
-    };
 };
 
 #endif /* _MT2CALCULATOR_H_ */
