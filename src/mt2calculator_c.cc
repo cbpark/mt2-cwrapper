@@ -2,16 +2,6 @@
 #include "mt2calculator_c.h"
 
 extern "C" {
-    typedef struct MT2Calculator MT2Calculator;
-
-    MT2Calculator* new_mt2calculator() {
-        return new MT2Calculator();
-    }
-
-    void delete_mt2calculator(MT2Calculator *m) {
-        delete m;
-    }
-
     double mt2_value(MT2Calculator *m,
                      double *vis_a, double *vis_b,
                      double *ptmiss, double mchi) {
@@ -25,7 +15,7 @@ extern "C" {
     int run_mt2calculator(double* vis_a, double* vis_b,
                           double* ptmiss, double  mchi,
                           mt2calc_result* result) {
-        struct MT2Calculator* m = new_mt2calculator();
+        MT2Calculator* m = new MT2Calculator();
         if (m == NULL) {
             puts("Memory allocation for MT2Calculator failed.");
             return 1;
@@ -35,7 +25,7 @@ extern "C" {
         result->qx  = pinv_value(m)[0];
         result->qy  = pinv_value(m)[1];
 
-        delete_mt2calculator(m);
+        delete m;
 
         return 0;
     }
