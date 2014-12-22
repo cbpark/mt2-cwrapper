@@ -125,22 +125,22 @@ am__uninstall_files_from_dir = { \
 am__installdirs = "$(DESTDIR)$(libdir)" "$(DESTDIR)$(bindir)" \
 	"$(DESTDIR)$(pkgincludedir)"
 LTLIBRARIES = $(lib_LTLIBRARIES)
-libMT2Calculator_la_LIBADD =
-am_libMT2Calculator_la_OBJECTS = libMT2Calculator_la-MT2Calculator.lo \
-	libMT2Calculator_la-MT2Calculator_c.lo
-libMT2Calculator_la_OBJECTS = $(am_libMT2Calculator_la_OBJECTS)
+libmt2calculator_la_LIBADD =
+am_libmt2calculator_la_OBJECTS = libmt2calculator_la-mt2calculator.lo \
+	libmt2calculator_la-mt2calculator_c.lo
+libmt2calculator_la_OBJECTS = $(am_libmt2calculator_la_OBJECTS)
 AM_V_lt = $(am__v_lt_@AM_V@)
 am__v_lt_ = $(am__v_lt_@AM_DEFAULT_V@)
 am__v_lt_0 = --silent
 am__v_lt_1 = 
-libMT2Calculator_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CXX \
+libmt2calculator_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CXX \
 	$(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=link $(CXXLD) \
-	$(libMT2Calculator_la_CXXFLAGS) $(CXXFLAGS) \
-	$(libMT2Calculator_la_LDFLAGS) $(LDFLAGS) -o $@
+	$(libmt2calculator_la_CXXFLAGS) $(CXXFLAGS) \
+	$(libmt2calculator_la_LDFLAGS) $(LDFLAGS) -o $@
 PROGRAMS = $(bin_PROGRAMS)
 am_mt2test_OBJECTS = mt2test.$(OBJEXT)
 mt2test_OBJECTS = $(am_mt2test_OBJECTS)
-mt2test_DEPENDENCIES = libMT2Calculator.la
+mt2test_DEPENDENCIES = libmt2calculator.la
 AM_V_P = $(am__v_P_@AM_V@)
 am__v_P_ = $(am__v_P_@AM_DEFAULT_V@)
 am__v_P_0 = false
@@ -193,8 +193,8 @@ AM_V_CXXLD = $(am__v_CXXLD_@AM_V@)
 am__v_CXXLD_ = $(am__v_CXXLD_@AM_DEFAULT_V@)
 am__v_CXXLD_0 = @echo "  CXXLD   " $@;
 am__v_CXXLD_1 = 
-SOURCES = $(libMT2Calculator_la_SOURCES) $(mt2test_SOURCES)
-DIST_SOURCES = $(libMT2Calculator_la_SOURCES) $(mt2test_SOURCES)
+SOURCES = $(libmt2calculator_la_SOURCES) $(mt2test_SOURCES)
+DIST_SOURCES = $(libmt2calculator_la_SOURCES) $(mt2test_SOURCES)
 am__can_run_installinfo = \
   case $$AM_UPDATE_INFO_DIR in \
     n|no|NO) false;; \
@@ -346,18 +346,18 @@ top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 AM_CXXFLAGS = -Wall -Wextra
 AM_CFLAGS = -Wall -Wextra
-lib_LTLIBRARIES = libMT2Calculator.la
+lib_LTLIBRARIES = libmt2calculator.la
 mt2test_SOURCES = mt2test.c
-mt2test_LDADD = libMT2Calculator.la
-libMT2Calculator_la_SOURCES = \
-	MT2Calculator.cc          \
-	MT2Calculator_c.cc
+mt2test_LDADD = libmt2calculator.la
+libmt2calculator_la_SOURCES = \
+	mt2calculator.cc          \
+	mt2calculator_c.cc
 
-libMT2Calculator_la_CXXFLAGS = @ROOT_CXXFLAGS@
-libMT2Calculator_la_LDFLAGS = @ROOT_LDFLAGS@
+libmt2calculator_la_CXXFLAGS = @ROOT_CXXFLAGS@
+libmt2calculator_la_LDFLAGS = @ROOT_LDFLAGS@
 pkginclude_HEADERS = \
-	MT2Calculator.h   \
-	MT2Calculator_c.h
+	mt2calculator.h   \
+	mt2calculator_c.h
 
 all: all-am
 
@@ -429,8 +429,8 @@ clean-libLTLIBRARIES:
 	  rm -f $${locs}; \
 	}
 
-libMT2Calculator.la: $(libMT2Calculator_la_OBJECTS) $(libMT2Calculator_la_DEPENDENCIES) $(EXTRA_libMT2Calculator_la_DEPENDENCIES) 
-	$(AM_V_CXXLD)$(libMT2Calculator_la_LINK) -rpath $(libdir) $(libMT2Calculator_la_OBJECTS) $(libMT2Calculator_la_LIBADD) $(LIBS)
+libmt2calculator.la: $(libmt2calculator_la_OBJECTS) $(libmt2calculator_la_DEPENDENCIES) $(EXTRA_libmt2calculator_la_DEPENDENCIES) 
+	$(AM_V_CXXLD)$(libmt2calculator_la_LINK) -rpath $(libdir) $(libmt2calculator_la_OBJECTS) $(libmt2calculator_la_LIBADD) $(LIBS)
 install-binPROGRAMS: $(bin_PROGRAMS)
 	@$(NORMAL_INSTALL)
 	@list='$(bin_PROGRAMS)'; test -n "$(bindir)" || list=; \
@@ -491,8 +491,8 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMT2Calculator_la-MT2Calculator.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libMT2Calculator_la-MT2Calculator_c.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmt2calculator_la-mt2calculator.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmt2calculator_la-mt2calculator_c.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mt2test.Po@am__quote@
 
 .c.o:
@@ -537,19 +537,19 @@ distclean-compile:
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(LTCXXCOMPILE) -c -o $@ $<
 
-libMT2Calculator_la-MT2Calculator.lo: MT2Calculator.cc
-@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMT2Calculator_la_CXXFLAGS) $(CXXFLAGS) -MT libMT2Calculator_la-MT2Calculator.lo -MD -MP -MF $(DEPDIR)/libMT2Calculator_la-MT2Calculator.Tpo -c -o libMT2Calculator_la-MT2Calculator.lo `test -f 'MT2Calculator.cc' || echo '$(srcdir)/'`MT2Calculator.cc
-@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libMT2Calculator_la-MT2Calculator.Tpo $(DEPDIR)/libMT2Calculator_la-MT2Calculator.Plo
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='MT2Calculator.cc' object='libMT2Calculator_la-MT2Calculator.lo' libtool=yes @AMDEPBACKSLASH@
+libmt2calculator_la-mt2calculator.lo: mt2calculator.cc
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmt2calculator_la_CXXFLAGS) $(CXXFLAGS) -MT libmt2calculator_la-mt2calculator.lo -MD -MP -MF $(DEPDIR)/libmt2calculator_la-mt2calculator.Tpo -c -o libmt2calculator_la-mt2calculator.lo `test -f 'mt2calculator.cc' || echo '$(srcdir)/'`mt2calculator.cc
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libmt2calculator_la-mt2calculator.Tpo $(DEPDIR)/libmt2calculator_la-mt2calculator.Plo
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='mt2calculator.cc' object='libmt2calculator_la-mt2calculator.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMT2Calculator_la_CXXFLAGS) $(CXXFLAGS) -c -o libMT2Calculator_la-MT2Calculator.lo `test -f 'MT2Calculator.cc' || echo '$(srcdir)/'`MT2Calculator.cc
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmt2calculator_la_CXXFLAGS) $(CXXFLAGS) -c -o libmt2calculator_la-mt2calculator.lo `test -f 'mt2calculator.cc' || echo '$(srcdir)/'`mt2calculator.cc
 
-libMT2Calculator_la-MT2Calculator_c.lo: MT2Calculator_c.cc
-@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMT2Calculator_la_CXXFLAGS) $(CXXFLAGS) -MT libMT2Calculator_la-MT2Calculator_c.lo -MD -MP -MF $(DEPDIR)/libMT2Calculator_la-MT2Calculator_c.Tpo -c -o libMT2Calculator_la-MT2Calculator_c.lo `test -f 'MT2Calculator_c.cc' || echo '$(srcdir)/'`MT2Calculator_c.cc
-@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libMT2Calculator_la-MT2Calculator_c.Tpo $(DEPDIR)/libMT2Calculator_la-MT2Calculator_c.Plo
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='MT2Calculator_c.cc' object='libMT2Calculator_la-MT2Calculator_c.lo' libtool=yes @AMDEPBACKSLASH@
+libmt2calculator_la-mt2calculator_c.lo: mt2calculator_c.cc
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmt2calculator_la_CXXFLAGS) $(CXXFLAGS) -MT libmt2calculator_la-mt2calculator_c.lo -MD -MP -MF $(DEPDIR)/libmt2calculator_la-mt2calculator_c.Tpo -c -o libmt2calculator_la-mt2calculator_c.lo `test -f 'mt2calculator_c.cc' || echo '$(srcdir)/'`mt2calculator_c.cc
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libmt2calculator_la-mt2calculator_c.Tpo $(DEPDIR)/libmt2calculator_la-mt2calculator_c.Plo
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='mt2calculator_c.cc' object='libmt2calculator_la-mt2calculator_c.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libMT2Calculator_la_CXXFLAGS) $(CXXFLAGS) -c -o libMT2Calculator_la-MT2Calculator_c.lo `test -f 'MT2Calculator_c.cc' || echo '$(srcdir)/'`MT2Calculator_c.cc
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmt2calculator_la_CXXFLAGS) $(CXXFLAGS) -c -o libmt2calculator_la-mt2calculator_c.lo `test -f 'mt2calculator_c.cc' || echo '$(srcdir)/'`mt2calculator_c.cc
 
 mostlyclean-libtool:
 	-rm -f *.lo
