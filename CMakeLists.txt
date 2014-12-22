@@ -21,7 +21,7 @@ ENDIF(CMAKE_SYSTEM_NAME MATCHES Darwin)
 
 IF(NOT CMAKE_BUILD_TYPE)
   SET(CMAKE_BUILD_TYPE Release CACHE STRING
-    "Choose the type of build, options are: Debug, Release, None." FORCE)
+    "Choose the type of build, options are: Debug, Release." FORCE)
 ENDIF(NOT CMAKE_BUILD_TYPE)
 
 SET(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -O0 -Wall -Wextra")
