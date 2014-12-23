@@ -7,7 +7,7 @@ The C++ class is basically the same as that in the `Basic_Mt2_332` algorithm in 
 
 ## Build and install
 
-Before attempting to build, you'll need to get [ROOT](http://root.cern.ch/) with [Minuit2](http://root.cern.ch/root/html/ROOT__Minuit2__Minuit2Minimizer.html) enabled. Then, the installed directory of the ROOT should be specified in the configuration.
+Before attempting to build, you'll need to get [ROOT](http://root.cern.ch/) with [Minuit2](http://root.cern.ch/root/html/ROOT__Minuit2__Minuit2Minimizer.html) enabled.
 
 ```shell
 mkdir build && cd build
