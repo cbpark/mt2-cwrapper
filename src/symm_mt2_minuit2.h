@@ -9,8 +9,8 @@
  * - returning the invisible momenta after the minimization,
  * - simplifications in order to make C wrapper handily.
  */
-#ifndef SRC_MT2CALCULATOR_H_
-#define SRC_MT2CALCULATOR_H_
+#ifndef SRC_SYMM_MT2_MINUIT2_H_
+#define SRC_SYMM_MT2_MINUIT2_H_
 
 #include <vector>
 #include "Minuit2/FCNBase.h"
@@ -34,7 +34,7 @@ inline double MT2Calculator::mt2(double *vis_a, double *vis_b,
     TVector2 pchi(ptmiss[0], ptmiss[1]);
     double m_sq = mt2sq(va, vb, pchi, mchi);
 
-    return (m_sq >= 0 ? std::sqrt(m_sq) : std::sqrt(-m_sq));
+    return m_sq >= 0 ? std::sqrt(m_sq) : std::sqrt(-m_sq);
 }
 
-#endif  // SRC_MT2CALCULATOR_H_
+#endif  // SRC_SYMM_MT2_MINUIT2_H_

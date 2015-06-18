@@ -1,10 +1,9 @@
-#include "mt2calculator.h"
-
 #include <algorithm>
 #include <cmath>
 #include "Minuit2/MnUserParameterState.h"
 #include "Minuit2/MnSimplex.h"
 #include "Minuit2/FunctionMinimum.h"
+#include "symm_mt2_minuit2.h"
 
 class MT2Fcn : public ROOT::Minuit2::FCNBase {
 private:

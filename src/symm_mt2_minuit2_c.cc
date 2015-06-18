@@ -1,5 +1,5 @@
-#include "mt2calculator.h"
-#include "mt2calculator_c.h"
+#include "symm_mt2_minuit2.h"
+#include "symm_mt2_minuit2_c.h"
 
 extern "C" {
     double mt2_value(MT2Calculator *m,
@@ -12,9 +12,9 @@ extern "C" {
         return m->p_invisible;
     }
 
-    int run_mt2calculator(double* vis_a, double* vis_b,
-                          double* ptmiss, double  mchi,
-                          mt2calc_result* result) {
+    int run_symm_mt2_minuit2(double* vis_a, double* vis_b,
+                             double* ptmiss, double mchi,
+                             mt2calc_result* result) {
         MT2Calculator* m = new MT2Calculator();
         if (m == NULL) {
             puts("Memory allocation for MT2Calculator failed.");

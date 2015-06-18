@@ -1,16 +1,22 @@
 INCLUDE_DIRECTORIES(${CMAKE_CURRENT_SOURCE_DIR})
 
-SET(mt2calculator_SRC mt2calculator.cc mt2calculator_c.cc)
-ADD_LIBRARY(mt2calculator SHARED ${mt2calculator_SRC})
-TARGET_LINK_LIBRARIES(mt2calculator ${ROOT_LIBRARIES})
-SET(LIBRARY_TARGET ${LIBRARY_TARGET} mt2calculator)
+SET(MT2Calculator_SRC symm_mt2_minuit2.cc symm_mt2_minuit2_c.cc lester_mt2_bisect_c.cc)
+ADD_LIBRARY(MT2Calculator SHARED ${MT2Calculator_SRC})
+TARGET_LINK_LIBRARIES(MT2Calculator ${ROOT_LIBRARIES})
+SET(LIBRARY_TARGET ${LIBRARY_TARGET} MT2Calculator)
 
 IF(CMAKE_BUILD_TYPE STREQUAL "Debug")
-  SET(mt2test_SRC mt2test.c)
-  ADD_EXECUTABLE(mt2test ${mt2test_SRC})
-  TARGET_LINK_LIBRARIES(mt2test mt2calculator)
-  SET(EXECUTABLE_TARGET ${EXECUTABLE_TARGET} mt2test)
-  SET_TARGET_PROPERTIES(mt2test PROPERTIES INSTALL_RPATH "@loader_path/../lib")
+  SET(test_symm_mt2_minuit2_SRC test_symm_mt2_minuit2.c)
+  ADD_EXECUTABLE(test_symm_mt2_minuit2 ${test_symm_mt2_minuit2_SRC})
+  TARGET_LINK_LIBRARIES(test_symm_mt2_minuit2 MT2Calculator)
+  SET(EXECUTABLE_TARGET ${EXECUTABLE_TARGET} test_symm_mt2_minuit2)
+  SET_TARGET_PROPERTIES(test_symm_mt2_minuit2 PROPERTIES INSTALL_RPATH "@loader_path/../lib")
+
+  SET(test_lester_mt2_bisect_SRC test_lester_mt2_bisect.c)
+  ADD_EXECUTABLE(test_lester_mt2_bisect ${test_lester_mt2_bisect_SRC})
+  TARGET_LINK_LIBRARIES(test_lester_mt2_bisect MT2Calculator)
+  SET(EXECUTABLE_TARGET ${EXECUTABLE_TARGET} test_lester_mt2_bisect)
+  SET_TARGET_PROPERTIES(test_lester_mt2_bisect PROPERTIES INSTALL_RPATH "@loader_path/../lib")
 ENDIF(CMAKE_BUILD_TYPE STREQUAL "Debug")
 
 INSTALL(TARGETS ${EXECUTABLE_TARGET} ${LIBRARY_TARGET}
