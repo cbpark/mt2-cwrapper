@@ -1,6 +1,9 @@
 INCLUDE_DIRECTORIES(${CMAKE_CURRENT_SOURCE_DIR})
 
-SET(MT2Calculator_SRC symm_mt2_minuit2.cc symm_mt2_minuit2_c.cc lester_mt2_bisect_c.cc)
+SET(MT2Calculator_SRC
+  symm_mt2_minuit2.cc symm_mt2_minuit2_c.cc
+  lester_mt2_bisect_c.cc
+  mt2_bisect.cpp mt2_bisect_c.cc)
 ADD_LIBRARY(MT2Calculator SHARED ${MT2Calculator_SRC})
 TARGET_LINK_LIBRARIES(MT2Calculator ${ROOT_LIBRARIES})
 SET(LIBRARY_TARGET ${LIBRARY_TARGET} MT2Calculator)
