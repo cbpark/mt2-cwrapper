@@ -1,3 +1,9 @@
+# Copyright (c) 2015, 2017 Chan Beom Park <cbpark@gmail.com>
+#
+# This file is part of mt2-cwrapper, which is released under the GNU General
+# Public License. See file LICENSE in the top directory of this project or
+# go to <http://www.gnu.org/licenses/> for full license details.
+
 INCLUDE_DIRECTORIES(${CMAKE_CURRENT_SOURCE_DIR})
 
 SET(MT2Calculator_SRC
