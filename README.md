@@ -1,6 +1,6 @@
 # mt2-cwrapper
 
-This package provides a C++ class object and its C wrapper, for binding in the other programming languages.
+This package provides a C++ class object and its C wrapper, for binding in the other programming languages. The Haskell FFI can be found at [hs-mt2calculator](https://github.com/cbpark/hs-mt2calculator).
 
 The C++ class is basically the same as that in the `Basic_Mt2_332` algorithm in [MT2 / Stransverse Mass / Oxbridge Kinetics Library](http://www.hep.phy.cam.ac.uk/~lester/mt2/), but with some modifications and simplifications. If you are going to use C++ for any study of the MT2 variable, it is recommended to use the original library.
 
