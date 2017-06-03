@@ -1,4 +1,4 @@
-# Copyright (c) 2015, 2017 Chan Beom Park <cbpark@gmail.com>
+# Copyright (c) 2014-2015, 2017 Chan Beom Park <cbpark@gmail.com>
 #
 # This file is part of mt2-cwrapper, which is released under the GNU General
 # Public License. See file LICENSE in the top directory of this project or

@@ -8,7 +8,7 @@ The C++ class is basically the same as that in the `Basic_Mt2_332` algorithm in 
 
 Before attempting to build, you'll need to get [ROOT](http://root.cern.ch/) with [Minuit2](http://root.cern.ch/root/html/ROOT__Minuit2__Minuit2Minimizer.html) enabled.
 
-```shell
+```
 mkdir build && cd build
 cmake .. -DCMAKE_INSTALL_PREFIX=/some/where
 make
