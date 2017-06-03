@@ -1,5 +1,5 @@
 /*
- *  Copyright (c) 2015, 2017 Chan Beom Park <cbpark@gmail.com>
+ *  Copyright (c) 2014-2015, 2017 Chan Beom Park <cbpark@gmail.com>
  *
  *  This file is part of mt2-cwrapper, which is released under the GNU General
  *  Public License. See file LICENSE in the top directory of this project or
@@ -15,8 +15,7 @@
 #include "TLorentzVector.h"
 #include "TVector2.h"
 
-/**
- * MT2Calculator class.
+/** MT2Calculator class.
  *
  * This class is basically the same as Basic_Mt2_332 algorithm in
  * <a href="http://www.hep.phy.cam.ac.uk/~lester/mt2/">MT2 / Stransverse Mass /
