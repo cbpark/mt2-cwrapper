@@ -19,4 +19,12 @@ double asymm_mt2_lester_bisect(double m_vis1, double px_vis1, double py_vis1,
                                             px_vis2, py_vis2, px_miss, py_miss,
                                             m_invis1, m_invis2);
 }
+
+Solutions sols(double MT2, double px, double py, double visM, double Ma,
+               double pxb, double pyb, double metx, double mety, double visMb,
+               double Mb) {
+    auto result =
+        ben_findsols(MT2, px, py, visM, Ma, pxb, pyb, metx, mety, visMb, Mb);
+    return Solutions{result.first, result.second};
+}
 }

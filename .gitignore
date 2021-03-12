@@ -18,6 +18,8 @@ config/stamp-h1
 libtool
 Makefile
 build
+*.ccls*
+*.gch
 
 # executables #
 ###############

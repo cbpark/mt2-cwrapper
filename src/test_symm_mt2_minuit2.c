@@ -11,8 +11,8 @@
 #include "symm_mt2_minuit2_c.h"
 
 int main(void) {
-    double visA[4] = {423.0, 410.0, 20.0, -20.0};
-    double visB[4] = {398.0, -210.0, -300.0, 44.0};
+    double visA[4] = {434.166, 410.0, 20.0, -100.0};
+    double visB[4] = {398.873, -210.0, -300.0, 50.0};
     double ptmiss[2] = {-200.0, 280.0};
     double mchi = 100.0;
 

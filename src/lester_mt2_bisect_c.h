@@ -18,6 +18,12 @@ double asymm_mt2_lester_bisect(double m_vis1, double px_vis1, double py_vis1,
                                double px_miss, double py_miss, double m_invis1,
                                double m_invis2);
 
+    typedef struct Solutions {
+        double qx;
+        double qy;
+    } Solutions;
+
+    Solutions sols(double MT2, double px, double py, double visM, double Ma, double pxb, double pyb, double metx, double mety, double visMb, double Mb);
 #ifdef __cplusplus
 }
 #endif
